@@ -18,7 +18,7 @@
 			<img src="Images/SharkCoolLogo.png">
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form method = "POST" action="#">
 				<img src="Images/avatar.png">
 				<h2 style = "color: #83CDBB">Ready?</h2>
            		<div class="input-div one">
@@ -40,8 +40,11 @@
             	   </div>
             	</div>
             	<a href="#">Forgot Password?</a>
-            	<button type = "submit" class = "btn">Play</button>
-                <button class = "btn">Join the Network</button>
+            	<button name = "PlayButton" type = "submit" class = "btn">Play</button>
+                <button name = "JoinButton" class = "btn">Join the Network</button>
+				<?php
+					if(isset($_POST["JoinButton"])) header("Location: Code/PHP/joining.php"); 
+				?>
             </form>
         </div>
     </div>

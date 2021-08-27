@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+}
+
+.JoiningInformation{
+    position: absolute;
+    left: 5%;
+    right: 5%; 
+    top: 8%; 
+    height: 55%; 
+    text-align: center;
+    background: rgba(10, 20, 30, 0.8); 
+    display: flex;
+}
+
+input{
+    margin-top: 4%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #83CDBB;
+	font-family: Monospace;
+    text-align: center;
+    margin-left: 5.5%;
+    margin-bottom: 12%;
+}
+
+.JoiningSpecialTitle{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0%;
+    margin: 0;
+    padding: 0;
+    font-size: 55px; 
+    text-align: center;
+    color: #83CDBB; 
+    width: 100%;
+}
+
+.JoinButton{
+    position: absolute;
+    top: 82%; 
+    left: 34.888%;
+    width: 555px; 
+    display: flex;
+    padding: 5px;
+}
