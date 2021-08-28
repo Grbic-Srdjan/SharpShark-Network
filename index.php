@@ -56,37 +56,7 @@ include "Code/PHP/connection.php";
 						$Username = $_POST["UsernameInputField"]; 
 						$Password = $_POST["PasswordInputField"]; 
 
-						// Making Query to Find that User in the Database
-						$Query = "SELECT * FROM users WHERE username = '$Username' and password = '$Password' "; 
-						$QueryResult = mysqli_query($Link, $Query) or die ("There was an Error :( . So Sorry. Please try again later on :) . "); 
-						$DatabaseRows = $QueryResult -> num_rows; 
-						if($DatabaseRows > 0){
-							// User Founded! 
-							
-							// Storing all of the Users Information from Database into a variables
-							$UserID = $DatabaseRows[0]; 
-							$IsUserAdmin = $DatabaseRows[1]; 
-							$EMailAdress = $DatabaseRows[3];  
-							$DateOfBirth = $DatabaseRows[5]; 
-
-							// Storing all of the Users Information from Variables to Sessions
-							$_SESSION["id"] = $UserID;
-							$_SESSION["admin"] = $IsUserAdmin; 
-							$_SESSION["username"] = $Username; 
-							$_SESSION["email"] = $EMailAdress; 
-							$_SESSION["password"] = $Password; 
-							$_SESSION["birthday"] = $DateOfBirth; 
-
-							header("Location: Code/PHP/profile.php"); // Transporting User to its Profile
-							
-
-						}
-						else { // Username does not Match with Password or maybe does not exist in the Database
-							// Checking if the user even exist in the Database and telling user that user does not exist, if user does not exist or that user has entered just wrong password
-							$DoesUserExistQuery = "SELECT * FROM users WHERE username = '$Username' "; 
-							if(mysqli_query($Link, $DoesUserExistQuery) -> num_rows > 0) echo "<h4 style = 'color: #83CDBB'> You Entered Wrong Password for that User! </h4>";
-							else echo "<h4 style = 'color: #83CDBB'> That user does not exist (Try to Enter different Username) ! </h4>";  
-						}
+						connectUserToTheNetwork($Username, $Password); 
 
 					}
 					else if(isset($_POST["JoinButton"])) header("Location: Code/PHP/joining.php"); // If LogIn is not pressed, checking if the button for creating a new ac is pressed
